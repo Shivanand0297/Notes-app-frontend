@@ -5,12 +5,14 @@ import About from './pages/About'
 import Home from './pages/Home'
 import "bootstrap/dist/css/bootstrap.min.css"
 import NoteState from './context/notes/NoteState'
+import Alert from './components/Alert'
 
 const App = () => {
   return (
     <NoteState>
       <BrowserRouter>
           <Navbar/>
+          <Alert message={"deleted"} />
           <div className='container'>
           <Routes>
               <Route path='/' element={<Home/>} />
