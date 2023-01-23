@@ -13,7 +13,7 @@ const Signup = () => {
     const loginFunction = async () =>{
         // api
         console.log(`${HOST}/api/auth/createuser`);
-        const res = await fetch(`${HOST}/api/auth/login`, {
+        const res = await fetch(`${HOST}/api/auth/createuser`, {
             method: "POST",
             headers: {
                 "Content-Type" : "application/json"
@@ -45,11 +45,11 @@ const Signup = () => {
     
 
   return (
-    <div>
+    <div className="container" >
         <form onSubmit={handleSubmit} >
           <div className="mb-3">
             <label htmlFor="name" className="form-label">
-              Email address
+              Your Name
             </label>
             <input
               type="text"
@@ -59,6 +59,8 @@ const Signup = () => {
               aria-describedby="emailHelp"
               onChange={handleChange}
               value={input.name}
+              required
+              minLength={5}
             />
             <label htmlFor="email" className="form-label">
               Email address
@@ -71,6 +73,7 @@ const Signup = () => {
               aria-describedby="emailHelp"
               onChange={handleChange}
               value={input.email}
+              required
             />
           </div>
           <div className="mb-3">
@@ -84,6 +87,7 @@ const Signup = () => {
               name="password"
               onChange={handleChange}
               value={input.password}
+              required
             />
           </div>
           <button type="submit" className="btn btn-primary">
