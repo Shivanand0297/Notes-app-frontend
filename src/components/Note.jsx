@@ -4,9 +4,11 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 import React, { useContext, useEffect, useRef, useState } from "react";
 import NoteItem from "./NoteItem";
+import { useNavigate } from "react-router-dom";
 
 const Note = () => {
   const { notes, getAllNotes, editNote } = useContext(NoteContext);
+  const navigate = useNavigate()
   // state to store the input values
   const [input, setInput] = useState({
     id: "",
@@ -18,9 +20,13 @@ const Note = () => {
   const toggleModel = useRef(null);
 
   useEffect(() => {
-    getAllNotes();
+    if(localStorage.getItem("token")){
+      getAllNotes();
+    }else{
+      navigate("/login")
+    }
     // eslint-disable-next-line
-  }, []);
+  }, [localStorage.getItem("token")]);
 
   const updateNote = (currentNote) => {
     toggleModel.current.click();
