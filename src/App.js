@@ -4,7 +4,7 @@ import Navbar from './components/Navbar'
 import About from './pages/About'
 import Home from './pages/Home'
 import NoteState from './context/notes/NoteState'
-import Alert from './components/Alert'
+// import Alert from './components/Alert'
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.bundle.min.js"
 import Login from './components/Login'
@@ -15,7 +15,7 @@ const App = () => {
     <NoteState>
       <BrowserRouter>
           <Navbar/>
-          <Alert message={"deleted"} />
+          {/* <Alert message={"deleted"} /> */}
           <div className='container'>
           <Routes>
               <Route path='/' element={<Home/>} />
