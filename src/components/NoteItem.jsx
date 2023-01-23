@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { FaTrash, FaEdit } from "react-icons/fa"
 import NoteContext from "../context/notes/NoteContext";
 
-const NoteItem = ({ note }) => {
+const NoteItem = ({ note, updateNote }) => {
 
   const { deleteNote } = useContext(NoteContext)
 
@@ -15,7 +15,7 @@ const NoteItem = ({ note }) => {
           <p className="card-text"> {note.tag} </p>
           <div className="d-flex justify-content-between align-items-center">
           <FaTrash color="red" cursor={"pointer"} onClick={()=>(deleteNote(note._id))} />
-          <FaEdit cursor={"pointer"} />
+          <FaEdit cursor={"pointer"} onClick={()=>{updateNote(note)}} />
           </div>
         </div>
       </div>

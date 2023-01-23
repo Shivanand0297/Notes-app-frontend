@@ -39,7 +39,7 @@ const NoteForm = () => {
   return (
     <>
       <h1>Add a Note</h1>
-      <form>
+      <form onSubmit={handleSubmit} >
         <div className="form-group my-3">
           <label htmlFor="title">Title</label>
           <input
@@ -51,6 +51,8 @@ const NoteForm = () => {
             aria-describedby="emailHelp"
             placeholder="Enter Title"
             onChange={handleInput}
+            minLength={5}
+            required
           />
         </div>
         <div className="form-group">
@@ -63,6 +65,8 @@ const NoteForm = () => {
             value={input.description}
             placeholder="Description"
             onChange={handleInput}
+            minLength={5}
+            required
           />
         </div>
         <div className="form-group">
@@ -75,9 +79,13 @@ const NoteForm = () => {
             value={input.tag}
             placeholder="tag"
             onChange={handleInput}
+            minLength={5}
+            required
           />
         </div>
-        <button type="submit" className="btn btn-primary my-3" onClick={handleSubmit}>
+        <button type="submit" className="btn btn-primary my-3" 
+        disabled={input.title.length <3 || input.description.length <3}
+        >
           Submit
         </button>
       </form>
