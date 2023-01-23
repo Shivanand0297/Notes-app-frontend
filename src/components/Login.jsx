@@ -26,7 +26,7 @@ const Login = () => {
 
         //   if request does not result into success
           if(!data.success){
-            alert("Please Login With Correct Credentials")
+            return alert("Please Login With Correct Credentials")
           }
 
         //   on successfull response setting token in the localStorage
@@ -44,7 +44,7 @@ const Login = () => {
 
   return (
     <>
-      <div>
+      <div className="container" >
         <form onSubmit={handleSubmit} >
           <div className="mb-3">
             <label htmlFor="email" className="form-label">
@@ -77,7 +77,7 @@ const Login = () => {
             />
           </div>
           <button type="submit" className="btn btn-primary">
-            Submit
+            Login
           </button>
         </form>
       </div>
